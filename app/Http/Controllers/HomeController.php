@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Home;
+use App\Models\Anime;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,11 +15,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        $animes = Anime::latest()->paginate(12);
+
         $data = [
+            'animes' => $animes,
             'title' => "Testing data"
         ];
 
-        return view('welcome')->with($data);
+        return view('home')->with($data);
     }
 
     /**
