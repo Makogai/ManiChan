@@ -23,7 +23,7 @@
     </head>
     <body class="antialiased">
         <div class="bg-blue-500">
-            TESTING
+            {{ $title }}
         </div>
     </body>
 </html>
