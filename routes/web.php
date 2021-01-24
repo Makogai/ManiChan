@@ -16,8 +16,13 @@ use App\Http\Controllers\AnimeController;
 |
 */
 
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/add', [AnimeController::class, 'create'])->name('add');
 Route::get('/add', function () {
     return view('add');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

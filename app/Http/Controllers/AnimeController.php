@@ -63,7 +63,8 @@ class AnimeController extends Controller
                    'cover' => $cover
                ]);
                // dd($new_vehicle['registarske_oznake']);
-               return redirect('add');
+            //    return redirect('add');
+            return response()->json(['success'=>'Form is successfully submitted!']);
     }
 
     /**

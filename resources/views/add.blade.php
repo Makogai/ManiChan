@@ -64,8 +64,8 @@
                 
                 <div class="col-6 bg-light-dark" style="">
                 <button class="btn btn-success prikazi">+</button>
-                    <form class="m-2" action="/add" method="POST">
-                            @csrf
+                    <form class="m-2" id="addForm">
+                            
                             <div class="form-group">
                             <label for="exampleInputEmail1">ID</label>
                             <input name="id" type="text" class="form-control" id="id" aria-describedby="emailHelp"
@@ -117,9 +117,48 @@
                 </div>
             </div>
         </div>
-
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
         <script>
+
+$('#addForm').on('submit',function(event){
+        event.preventDefault();
+
+        let name = $('#name').val();
+        let nameJP = $('#nameJP').val();
+        let episodes = $('#episodes').val();
+        let source = $('#source').val();
+        let status = $('#status').val();
+        let banner = $('#imageBanner').val();
+        let cover = $('#image').val();
+
+        $.ajax({
+          url: "/add",
+          type:"POST",
+          data:{
+            "_token": "{{ csrf_token() }}",
+            name_en:name,
+            name_jp:nameJP,
+            episodes:episodes,
+            source:source,
+            banner:banner,
+            cover:cover,
+            status:status,
+          },
+          success:function(response){
+            Swal.fire({
+                icon: 'success',
+                title: 'Yey...',
+                text: response.success,
+        
+                })
+                $("#addForm").closest('form').find("input[type=text], textarea").val("");
+                $("#query").val("");
+          },
+         });
+        });
+
+
             // Here we define our query as a multi-line string
             // Storing it in a separate .graphql/.gql file is also possible
 
