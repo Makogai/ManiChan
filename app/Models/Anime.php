@@ -12,4 +12,13 @@ class Anime extends Model
 
     public $primaryKey = "id";
     protected $guarded = [];
+
+    public function animeEpisode(){
+        return $this->hasMany(AnimeEpisode::class);
+    }
+
+    public function getRouteKeyName()
+{
+    return 'slug';
+}
 }

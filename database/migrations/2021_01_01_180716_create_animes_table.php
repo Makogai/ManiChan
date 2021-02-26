@@ -24,6 +24,8 @@ class CreateAnimesTable extends Migration
             $table->string('banner');
             $table->string('status');
             $table->string('source');
+            $table->string('description', 10000);
+            $table->string('slug');
         });
     }
 

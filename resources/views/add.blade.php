@@ -106,6 +106,12 @@
                                 <input name="banner" type="text" class="form-control" id="imageBanner" aria-describedby="emailHelp"
                                     placeholder="Enter email" >
                         </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Image url</label>
+                                <input name="banner" type="text" class="form-control" id="description" aria-describedby="emailHelp"
+                                    placeholder="Enter email" >
+                        </div>
                         
                        
 
@@ -131,6 +137,7 @@ $('#addForm').on('submit',function(event){
         let status = $('#status').val();
         let banner = $('#imageBanner').val();
         let cover = $('#image').val();
+        let description = $('#description').val();
 
         $.ajax({
           url: "/add",
@@ -144,6 +151,7 @@ $('#addForm').on('submit',function(event){
             banner:banner,
             cover:cover,
             status:status,
+            description:description,
           },
           success:function(response){
             Swal.fire({
@@ -236,6 +244,7 @@ $('#addForm').on('submit',function(event){
                    $("#imageBanner").val(data.data.Media.bannerImage); 
                    $("#status").val(data.data.Media.status); 
                    $("#source").val(data.data.Media.source); 
+                   $("#description").val(data.data.Media.description); 
                     
                 }
 

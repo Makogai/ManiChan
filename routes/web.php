@@ -26,3 +26,4 @@ Route::get('/add', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/anime/{anime:slug}',[App\Http\Controllers\AnimeController::class, 'show'])->name('anime.show');

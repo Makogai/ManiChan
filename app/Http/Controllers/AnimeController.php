@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Anime;
 use Illuminate\Http\Request;
 use Validator;
+use Illuminate\Support\Str;
 
 class AnimeController extends Controller
 {
@@ -50,9 +51,10 @@ class AnimeController extends Controller
                $episodes = request('episodes');
                $banner = request('banner');
                $cover = request('cover');
+               $description = request('description');
 
        
-       
+               $slug = Str::slug($name_jp, '-');
               Anime::create([
                    'name_en' => $name_en,
                    'name_jp' => $name_jp,
@@ -60,7 +62,9 @@ class AnimeController extends Controller
                    'status' => $status,
                    'episodes' => $episodes,
                    'banner' => $banner,
-                   'cover' => $cover
+                   'cover' => $cover,
+                   'description' => $description,
+                   'slug' => $slug
                ]);
                // dd($new_vehicle['registarske_oznake']);
             //    return redirect('add');
@@ -84,9 +88,20 @@ class AnimeController extends Controller
      * @param  \App\Models\Anime  $anime
      * @return \Illuminate\Http\Response
      */
-    public function show(Anime $anime)
+    public function show($slug)
     {
-        //
+        $anime = Anime::where('slug', $slug)
+        ->with('animeEpisode')->get();
+
+        $id = $anime[0]->id;
+
+        $anime = $anime->find($id);
+
+        $data = [
+            "anime" => $anime
+        ];
+
+        return view("anime.show")->with($data);
     }
 
     /**

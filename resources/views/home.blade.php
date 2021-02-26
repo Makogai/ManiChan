@@ -8,7 +8,7 @@
             @foreach($animes as $anime)
             <div class="anime mt-8">
                 <div class="relative inline-block">
-                    <a href="#">
+                    <a href="/anime/{{ $anime->slug }}">
                         <img src="{{ $anime->cover}}" alt="" class="hover:opacity-75 transition ease-in-out duration-150">
                     </a>
 

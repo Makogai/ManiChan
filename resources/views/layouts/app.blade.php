@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="{{asset("css/app.css")}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 </head>
 
@@ -19,7 +19,7 @@
         <nav class="container mx-auto flex items-center justify-between px-4 py-4">
             <div class="flex items-center">
                 <a href="/">
-                    <img src="img/logo.png" alt="Logo" class="w-32 flex-none">
+                    <img src="{{asset("img/logo.png")}}" alt="Logo" class="w-32 flex-none">
                 </a>
                
                 <ul class="hidden md:flex md:flex-row ml-16 space-x-8"  id="mobileMenu">
@@ -42,7 +42,7 @@
               </p>
             <div class="ml-6">
                 <a href="#">
-                    <img src="img/avatar.png" alt="avatar" class="rounded-full w-8">
+                    <img src="{{asset("img/avatar.png")}}" alt="avatar" class="rounded-full w-8">
                 </a>
                
             </div>
