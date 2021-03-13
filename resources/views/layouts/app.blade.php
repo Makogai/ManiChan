@@ -19,11 +19,11 @@
         <nav class="container mx-auto flex items-center justify-between px-4 py-4">
             <div class="flex items-center">
                 <a href="/">
-                    <img src="{{asset("img/logo.png")}}" alt="Logo" class="w-32 flex-none">
+                    <img src="{{asset("img/logo.png")}}" href="{{route("home")}}" alt="Logo" class="w-32 flex-none">
                 </a>
                
                 <ul class="hidden md:flex md:flex-row ml-16 space-x-8"  id="mobileMenu">
-                    <li><a href="#" class="hover:text-gray-400">Anime</a></li>
+                    <li><a href="{{route("home")}}" class="hover:text-gray-400">Anime</a></li>
                     <li><a href="#" class="hover:text-gray-400">Manga</a></li>
                     <li><a href="#" class="hover:text-gray-400">Manhwa</a></li>
                 </ul>
